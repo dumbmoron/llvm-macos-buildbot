@@ -29,6 +29,7 @@ jobs:
         with:
           name: build_directory
           path: build_directory.tar
+          overwrite: true
 
   stage2:
     name: Build stage 2
@@ -51,6 +52,7 @@ jobs:
         with:
           name: build_directory
           path: build_directory.tar
+          overwrite: true
 
   stage3:
     name: Build and release stage 3
