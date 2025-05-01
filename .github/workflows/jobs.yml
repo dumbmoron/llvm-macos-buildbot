@@ -25,7 +25,7 @@ jobs:
       - name: Build
         run: ./build.sh ${{ inputs.arch }} stage1
       - name: Upload build directory
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build_directory
           path: build_directory.tar
@@ -41,13 +41,13 @@ jobs:
       - name: Uninstall Homebrew
         run: ./uninstall-homebrew.sh
       - name: Download build directory
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
             name: build_directory
       - name: Build
         run: ./build.sh ${{ inputs.arch }} stage2
       - name: Upload build directory
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build_directory
           path: build_directory.tar
@@ -63,14 +63,14 @@ jobs:
       - name: Uninstall Homebrew
         run: ./uninstall-homebrew.sh
       - name: Download build directory
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
             name: build_directory
       - name: Build
         id: bake
         run: ./build.sh ${{ inputs.arch }} stage3
       - name: Upload tarball
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.bake.outputs.file_name }}
           path: ./output/${{ steps.bake.outputs.file_name }}
