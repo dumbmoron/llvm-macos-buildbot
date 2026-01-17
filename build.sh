@@ -8,6 +8,11 @@ patch -p1 < 0001-skip-tests.patch
 patch -p1 < 0002-support-partitioned-builds.patch
 patch -p1 < 0003-use-built-in-xz-compression.patch
 
+
+# https://trac.macports.org/wiki/ProblemHotlist#clts16
+sudo rm -rf /Library/Developer/CommandLineTools/usr/include/c++
+sudo xcode-select --install
+
 CONFIGURE_FLAGS=(
   -DLLVM_APPEND_VC_REV=OFF
   -DLLVM_ENABLE_TERMINFO=OFF
